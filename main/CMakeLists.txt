@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 idf_component_register(
     SRCS 
         "main.c" 
@@ -16,3 +17,7 @@ idf_component_register(
         "mqtt"           # Adafruit bağlantısı için gerekli
         "esp_netif"      # İnternet katmanı için gerekli
 )
+=======
+idf_component_register(SRCS "hello_world_main.c"
+                    INCLUDE_DIRS "")
+>>>>>>> origin/main
