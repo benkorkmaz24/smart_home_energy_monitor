@@ -1,13 +1,10 @@
 /** 
  * @file lcd.h
- * @brief Bu dosya, Nokta yapısı ve fonksiyon prototiplerini içerir.
+ * @brief 
  * 
- * Bu dosya, temel nokta işlemleri için gerekli olan fonksiyon prototipleri ve 
- * yapıları tanımlar. Fonksiyonlar, iki nokta arasındaki mesafeyi hesaplama gibi 
- * işlemleri gerçekleştirir.
  * 
- * @author Ahmet KOSKER
- * @date 2025-02-03
+ * @author Bunyamin Korkmaz
+ * @date 2026-01-12
  */
 
 #ifndef LCD_SSD1306_H

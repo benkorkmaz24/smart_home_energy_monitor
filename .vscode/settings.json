@@ -1,12 +1,24 @@
 {
   "C_Cpp.intelliSenseEngine": "default",
-  "idf.espIdfPathWin": "C:\\Users\\bnykr\\esp\\v5.3\\esp-idf",
+  "idf.espIdfPathWin": "C:\\Users\\bnykr\\esp\\v5.5.2\\esp-idf",
   "idf.pythonInstallPath": "C:\\Users\\bnykr\\.espressif\\tools\\idf-python\\3.11.2\\python.exe",
   "idf.openOcdConfigs": [
-    "board/esp32s3-builtin.cfg"
+    "interface/ftdi/esp32_devkitj_v1.cfg",
+    "target/esp32.cfg"
   ],
   "idf.toolsPathWin": "C:\\Users\\bnykr\\.espressif",
   "idf.customExtraVars": {
-    "IDF_TARGET": "esp32s3"
-  }
+    "OPENOCD_SCRIPTS": "C:\\Users\\bnykr\\.espressif\\tools\\openocd-esp32\\v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+    "IDF_CCACHE_ENABLE": "1",
+    "ESP_ROM_ELF_DIR": "C:\\Users\\bnykr\\.espressif\\tools\\esp-rom-elfs\\20240305/",
+    "IDF_TARGET": "esp32"
+  },
+  "idf.flashType": "UART",
+  "idf.portWin": "COM11",
+  "clangd.path": "C:\\Users\\bnykr\\.espressif\\tools\\esp-clang\\esp-19.1.2_20250312\\esp-clang\\bin\\clangd.exe",
+  "clangd.arguments": [
+    "--background-index",
+    "--query-driver=**",
+    "--compile-commands-dir=c:\\Users\\bnykr\\smart_home_energy_monitoring\\build"
+  ]
 }
