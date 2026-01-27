@@ -41,8 +41,8 @@ A real-time, IoT-enabled Smart Energy Monitor built with **ESP32** and **ACS712*
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-    cd YOUR_REPO_NAME
+    git clone (https://github.com/benkorkmaz24/smart_home_energy_monitor.git)
+    cd smart_home_energy_monitor
     ```
 
 2.  **Configure Credentials:**
