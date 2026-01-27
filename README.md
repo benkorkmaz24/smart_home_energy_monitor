@@ -1,53 +1,72 @@
-| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C5 | ESP32-C6 | ESP32-C61 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 | Linux |
-| ----------------- | ----- | -------- | -------- | -------- | -------- | --------- | -------- | -------- | -------- | -------- | ----- |
+|# ⚡ Smart Home Energy Monitor (ESP32 IoT)
 
-# Hello World Example
+![License](https://img.shields.io/badge/license-MIT-blue.svg) ![Platform](https://img.shields.io/badge/platform-ESP32-orange.svg) ![Language](https://img.shields.io/badge/language-C-green)
 
-Starts a FreeRTOS task to print "Hello World".
+A real-time, IoT-enabled Smart Energy Monitor built with **ESP32** and **ACS712**. This system measures AC current, calculates power consumption (RMS), and tracks cumulative energy cost. Data is visualized locally on an OLED display and transmitted remotely via **MQTT (Adafruit IO)**.
 
-(See the README.md file in the upper level 'examples' directory for more information about examples.)
+## 🚀 Key Features
 
-## How to use example
+* **True RMS Measurement:** Calculates Root Mean Square current over 150ms sampling windows for accurate AC readings.
+* **Smart Noise Gate:** Implements a software threshold (`~0.05A`) to eliminate sensor ghost noise when idle.
+* **Data Persistence (NVS):** Saves accumulated energy (kWh) and cost to ESP32's Non-Volatile Storage every minute. Data is preserved even after power loss.
+* **IoT Connectivity:** Transmits Power, Current, and Cost data to **Adafruit IO Cloud** via MQTT protocol.
+* **Brownout Protection:** Optimized Wi-Fi TX power (`10dBm`) to prevent voltage dips and system freezes.
+* **Safety Alarm System:** Visual (LED) and Audio (Buzzer) alerts when power exceeds **1300W**.
 
-Follow detailed instructions provided specifically for this example.
+## 🛠️ Hardware Requirements
 
-Select the instructions depending on Espressif chip installed on your development board:
+| Component | Description |
+|-----------|-------------|
+| **ESP32 DevKit V1** | Main Microcontroller (Wi-Fi + Bluetooth) |
+| **ACS712 (30A)**    | Hall Effect Current Sensor |
+| **SSD1306 OLED**    | 0.96" I2C Display (128x64) |
+| **Buzzer**          | Active Buzzer for Alarm |
+| **LEDs**            | Red (Alarm), Yellow (Status) |
+| **Resistors**       | 220Ω or 330Ω for LEDs |
 
-- [ESP32 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html)
-- [ESP32-S2 Getting Started Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s2/get-started/index.html)
+## 🔌 Pin Configuration
 
+| ESP32 Pin | Component Pin | Function |
+|-----------|---------------|----------|
+| **GPIO 36 (VP)** | ACS712 OUT | Analog Input (ADC1_CH0) |
+| **GPIO 21**  | OLED SDA | I2C Data |
+| **GPIO 22**  | OLED SCL | I2C Clock |
+| **GPIO 25**  | Red LED | Alarm Indicator (High Power) |
+| **GPIO 26**  | Buzzer | Audible Alarm |
+| **GPIO 27**  | Yellow LED | Normal Status Indicator |
+| **5V / VIN** | VCC | Power Supply |
+| **GND**      | GND | Ground |
 
-## Example folder contents
+## ⚙️ Installation & Setup
 
-The project **hello_world** contains one source file in C language [hello_world_main.c](main/hello_world_main.c). The file is located in folder [main](main).
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+    cd YOUR_REPO_NAME
+    ```
 
-ESP-IDF projects are built using CMake. The project build configuration is contained in `CMakeLists.txt` files that provide set of directives and instructions describing the project's source files and targets (executable, library, or both).
+2.  **Configure Credentials:**
+    * Rename `main/include/secrets_example.h` to `secrets.h`.
+    * Enter your Wi-Fi SSID, Password, and Adafruit IO Key in `secrets.h`.
+    *(Note: `secrets.h` is ignored by Git for security)*
 
-Below is short explanation of remaining files in the project folder.
+3.  **Build and Flash:**
+    * Open the project in **VS Code** with **ESP-IDF Extension**.
+    * Build the project.
+    * Flash to your ESP32 board.
 
-```
-├── CMakeLists.txt
-├── pytest_hello_world.py      Python script used for automated testing
-├── main
-│   ├── CMakeLists.txt
-│   └── hello_world_main.c
-└── README.md                  This is the file you are currently reading
-```
+## 📊 Software Architecture
 
-For more information on structure and contents of ESP-IDF projects, please refer to Section [Build System](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html) of the ESP-IDF Programming Guide.
+The system operates on a non-blocking loop architecture:
+1.  **Sampling:** Reads raw ADC values for 150ms to determine Peak-to-Peak voltage.
+2.  **Filtering:** Applies a noise gate threshold to filter out idle sensor noise.
+3.  **Calculation:** Converts voltage to RMS Current -> Power (Watts) -> Accumulated Energy (kWh).
+4.  **Logic:** Triggers Alarm if `Power > 1300W`.
+5.  **Transmission:** Publishes MQTT data every 10 seconds.
+6.  **Storage:** Commits data to NVS Flash every 60 seconds.
 
-## Troubleshooting
+## ⚠️ Disclaimer
+This project involves measuring AC mains voltage. **Extreme caution** must be taken when working with 220V/110V. Ensure proper isolation and never touch the circuit while connected to mains power.
 
-* Program upload failure
-
-    * Hardware connection is not correct: run `idf.py -p PORT monitor`, and reboot your board to see if there are any output logs.
-    * The baud rate for downloading is too high: lower your baud rate in the `menuconfig` menu, and try again.
-
-## Technical support and feedback
-
-Please use the following feedback channels:
-
-* For technical queries, go to the [esp32.com](https://esp32.com/) forum
-* For a feature request or bug report, create a [GitHub issue](https://github.com/espressif/esp-idf/issues)
-
-We will get back to you as soon as possible.
+---
+*Developed by Bünyamin KORKMAZ*
