@@ -71,14 +71,14 @@ Here are some visuals from the prototype and the mobile dashboard.
 
 | Circuit Setup | OLED Display Interface |
 | :---: | :---: |
-| <img src="photos/devre.jpg" width="400"> | <img src="photos/ekran.jpg" width="400"> |
+| <img src="https://github.com/user-attachments/assets/2d941b59-a972-4737-b998-76887bad431b" width="400"> | <img src="https://github.com/user-attachments/assets/5c933fd6-7d16-4454-9238-b2447d2c8085" width="400"> |
 | *General wiring and ESP32 setup* | *Real-time power & cost monitoring* |
 
 
 | Adafruit IO Dashboard | Testing w/ Load |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/ebf50478-a2f4-4b4f-a9ce-46b4d86d5de5" width="400"> | <img src="photos/test.jpg" width="400"> |
-| *Remote monitoring via Mobile* | *System under load (Blender test)* |
+| <img src="https://github.com/user-attachments/assets/ebf50478-a2f4-4b4f-a9ce-46b4d86d5de5" width="400"> | <img src="https://github.com/user-attachments/assets/848dd367-6476-47f3-b375-ad2a81d5f9b4" width="400"> |
+| *Remote monitoring via Mobile* | *IoT Mobile panel * |
 
 ## ⚠️ Disclaimer
 This project involves measuring AC mains voltage. **Extreme caution** must be taken when working with 220V/110V. Ensure proper isolation and never touch the circuit while connected to mains power.
