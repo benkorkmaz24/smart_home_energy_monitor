@@ -74,10 +74,9 @@ Here are some visuals from the prototype and the mobile dashboard.
 | <img src="https://github.com/user-attachments/assets/2d941b59-a972-4737-b998-76887bad431b" width="400"> | <img src="https://github.com/user-attachments/assets/5c933fd6-7d16-4454-9238-b2447d2c8085" width="400"> |
 | *General wiring and ESP32 setup* | *Real-time power & cost monitoring* |
 
-
 | Adafruit IO Dashboard | Testing w/ Load |
 | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/ebf50478-a2f4-4b4f-a9ce-46b4d86d5de5" width="400"> | <img src="https://github.com/user-attachments/assets/848dd367-6476-47f3-b375-ad2a81d5f9b4" width="400"> |
+| <img src="https://github.com/user-attachments/assets/ebf50478-a2f4-4b4f-a9ce-46b4d86d5de5" width="400"> | <img src="https://github.com/user-attachments/assets/4ce374fd-2146-49f4-bef0-f6264a41f759" width="400"> |
 | *Remote monitoring via Mobile* | *IoT Mobile panel * |
 
 ## ⚠️ Disclaimer
